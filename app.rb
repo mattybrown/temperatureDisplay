@@ -11,6 +11,8 @@ get "/" do
   erb :index
 end
 
-get "/:temp" do
-  @temp = params[:temp]
+post "/" do
+  t = params[:temp]
+  r = Temperature.new(temp_in_celsius: t)
+  r.save
 end
