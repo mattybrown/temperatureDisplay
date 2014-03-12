@@ -1,9 +1,17 @@
 require "sinatra"
 require "sinatra/activerecord"
+require "chartkick"
+
 
 set :database, "sqlite:///temperatures.db"
 
 class Temperature < ActiveRecord::Base
+end
+
+helpers do
+  def pretty_date(time)
+    time.strftime("%T %d %b %Y")
+  end
 end
 
 get "/" do
