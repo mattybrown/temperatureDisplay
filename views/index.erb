@@ -1,2 +1,5 @@
 <h2>Temperature:</h2>
-<strong><%= @temp.temp_in_celsius %> degrees celsius</strong>
+<% @temps.each do |t| %>
+  <h2>Temp: <%= t.temp_in_celsius %></h2>
+  <p><%= t.created_at %></p>
+<% end %>

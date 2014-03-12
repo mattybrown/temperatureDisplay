@@ -7,7 +7,7 @@ class Temperature < ActiveRecord::Base
 end
 
 get "/" do
-  @temp = Temperature.find(:last)
+  @temps = Temperature.order("created_at DESC")
   erb :index
 end
 
