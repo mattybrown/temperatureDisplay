@@ -1,13 +1,9 @@
 
-<h2>Temperature:</h2>
-<% temp_hash = {} %>
-<% @temps.each do |t| %>
-  <h4>Temp: <%= t.temp_in_celsius %></h4>
-  <p><%= pretty_date(t.created_at) %></p>
-  <% temp_hash[t.created_at] = [t.temp_in_celsius] %>
-<% end %>
+<p>Current temperature:</p>
+<h2><%= @temp_now.temp_in_celsius %> C</h2>
+<p><%= pretty_date(@temp_now.created_at) %></p>
 <h2>Todays temperature</h2>
-<%= line_chart(temp_hash) %>
+<%= line_chart(@graph) %>
 
 
 

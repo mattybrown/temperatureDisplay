@@ -12,10 +12,21 @@ helpers do
   def pretty_date(time)
     time.strftime("%T %d %b %Y")
   end
+
+  def create_graph
+    temps = Temperature.order("created_at DESC")
+    temp_hash = {}
+    temps.each do |t|
+      temp_hash[t.created_at] = [t.temp_in_celsius]
+    end
+    return temp_hash
+  end
+
 end
 
 get "/" do
-  @temps = Temperature.order("created_at DESC")
+  @graph = create_graph
+  @temp_now = Temperature.last
   erb :index
 end
 
