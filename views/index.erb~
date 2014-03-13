@@ -1,4 +1,4 @@
-<div class="sixteen columns">
+<div class="one-third column">
   <p>Current temperature:</p>
   <h2><%= @temp_now.temp_in_celsius %> C</h2>
   <p><%= pretty_date(@temp_now.created_at) %></p>
